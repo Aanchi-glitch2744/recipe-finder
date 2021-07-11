@@ -23,7 +23,6 @@ class HeaderForm extends Component {
     });
   };
 
-
   render() {
     return (
       <div>
@@ -54,4 +53,5 @@ class HeaderForm extends Component {
     );
   }
 }
+
 export default HeaderForm;

@@ -105,13 +105,10 @@ class SearchedContent extends Component {
               </div>
             </div>
           ) : (
-            <div className="noData">No Data has been recieved</div>
+            <div className="noData">No Data Has been recieved</div>
           );
         return <div>{id}</div>;
       }
-    
-
 }
 
 export default SearchedContent;
-

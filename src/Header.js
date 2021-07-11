@@ -12,7 +12,6 @@ class HeaderForm extends Component {
 
   getRecipe = (e) => {
     e.preventDefault();
-
     var item = document.getElementById("text").value;
 
     this.setState({
@@ -38,7 +37,11 @@ class HeaderForm extends Component {
               onClick={this.getRecipe}
             />
           </form>
-        </div>
+        </div>       
+       
+          <h2 className="firstTimeVis">
+            Type a Dish Name to search for its ingredients
+          </h2>
     
       </div>
     );

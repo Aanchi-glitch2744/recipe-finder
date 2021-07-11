@@ -19,6 +19,10 @@
   margin: 10px;
   padding: 5px;  
 }
+#submitBtn:hover {
+border: 2px purple;
+border-style: ridge;
+}
 
 .input-form input[type="text"] {
   padding: 8px 20px;
@@ -42,7 +46,6 @@
   margin-left: 20px;
   padding: 10px;
   border: 1.5px solid grey;
- /* background-color: whitesmoke; */
   background-image: linear-gradient(whitesmoke, lightgrey);
   border-radius: 1.5px;
   color: black;

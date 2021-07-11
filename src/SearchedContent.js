@@ -1,12 +1,20 @@
 import React, { Component } from "react";
 import "./common/searchedcontent.css";
 import Axios from "axios";
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 
 class SearchedContent extends Component {
     constructor(props) {
         super(props);
         this.state = {
             dish: [],
+            heartIcons: [
+                {
+                   id: 1,
+                   stateId: "heart",
+                   color: "white"
+                }
+            ]
           };
     }
 
@@ -44,6 +52,23 @@ class SearchedContent extends Component {
           }
         }
       }
+
+      heartClickHandler = (id) => {
+        let heartIconList = [];
+        for (let heart of this.state.heartIcons) {
+            let heartNode = heart;
+            if (heart.id <= id) {
+                heartNode.color = "red"
+            }
+            else {
+                heartNode.color = "white";
+    
+            }
+            heartIconList.push(heartNode);
+        }
+        this.setState({ heartIcons: heartIconList });
+    }
+    
     
       render() {
         const { dish } = this.state;
@@ -66,7 +91,14 @@ class SearchedContent extends Component {
         dish!== null && dish.length > 0 ? (
             <div className="recipeContent">
               <div className="title">
-                <h1>{dish[0].strMeal}</h1>
+                <h1>{dish[0].strMeal}<span className="marginIcon">
+                {this.state.heartIcons.map(heart => (
+                            <FavoriteBorderIcon
+                                className={heart.color}
+                                key={"heart" + heart.id}
+                                onClick={() => this.heartClickHandler(heart.id)}
+                            />
+                        ))}</span></h1>
               </div>
               <div className="recipeItems">
                 <img

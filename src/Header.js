@@ -14,12 +14,15 @@ class HeaderForm extends Component {
   getRecipe = (e) => {
     e.preventDefault();
     var item = document.getElementById("text").value;
+    var bgColor = document.getElementById("submitBtn").style.borderColor = "purple";
 
     this.setState({
       searched: true,
       foodItem: item,
+      color: bgColor,
     });
   };
+
 
   render() {
     return (
@@ -34,6 +37,7 @@ class HeaderForm extends Component {
             />
             <input
               type="submit"
+              id="submitBtn"
               value="Get Ingredients"
               onClick={this.getRecipe}
             />

@@ -58,10 +58,12 @@ class SearchedContent extends Component {
         for (let heart of this.state.heartIcons) {
             let heartNode = heart;
             if (heart.id <= id) {
-                heartNode.color = "red"
+                document.getElementsByClassName('marginIcon').style.color = "purple";
+
+              //  heartNode.color = "white";
             }
             else {
-                heartNode.color = "white";
+                heartNode.color = "red";
     
             }
             heartIconList.push(heartNode);
@@ -91,14 +93,15 @@ class SearchedContent extends Component {
         dish!== null && dish.length > 0 ? (
             <div className="recipeContent">
               <div className="title">
-                <h1>{dish[0].strMeal}<span className="marginIcon">
+                <span className="marginIcon1"> <h1 >{dish[0].strMeal}</h1></span>
+                <span className="marginIcon2">
                 {this.state.heartIcons.map(heart => (
                             <FavoriteBorderIcon
                                 className={heart.color}
                                 key={"heart" + heart.id}
                                 onClick={() => this.heartClickHandler(heart.id)}
                             />
-                        ))}</span></h1>
+                        ))}</span>
               </div>
               <div className="recipeItems">
                 <img

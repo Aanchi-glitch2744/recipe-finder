@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./common/header.css";
+import SearchedContent from "./SearchedContent";
 
 class HeaderForm extends Component {
   constructor(props) {
@@ -38,7 +39,7 @@ class HeaderForm extends Component {
             />
           </form>
         </div>       
-       
+        
           <h2 className="firstTimeVis">
             Type a Dish Name to search for its ingredients
           </h2>

@@ -1,20 +1,15 @@
 import React, { Component } from "react";
 import "./common/searchedcontent.css";
 import Axios from "axios";
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import { faHeart as farHeart } from '@fortawesome/free-regular-svg-icons'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class SearchedContent extends Component {
     constructor(props) {
         super(props);
         this.state = {
             dish: [],
-            heartIcons: [
-                {
-                   id: 1,
-                   stateId: "heart",
-                   color: "white"
-                }
-            ]
+            bgColor: "",
           };
     }
 
@@ -53,24 +48,11 @@ class SearchedContent extends Component {
         }
       }
 
-      heartClickHandler = (id) => {
-        let heartIconList = [];
-        for (let heart of this.state.heartIcons) {
-            let heartNode = heart;
-            if (heart.id <= id) {
-                document.getElementsByClassName('marginIcon').style.color = "purple";
-
-              //  heartNode.color = "white";
-            }
-            else {
-                heartNode.color = "red";
-    
-            }
-            heartIconList.push(heartNode);
-        }
-        this.setState({ heartIcons: heartIconList });
-    }
-    
+      boxClick = (e) => {
+        this.setState({
+          bgColor: "red"
+        })
+      }
     
       render() {
         const { dish } = this.state;
@@ -94,14 +76,12 @@ class SearchedContent extends Component {
             <div className="recipeContent">
               <div className="title">
                 <span className="marginIcon1"> <h1 >{dish[0].strMeal}</h1></span>
-                <span className="marginIcon2">
-                {this.state.heartIcons.map(heart => (
-                            <FavoriteBorderIcon
-                                className={heart.color}
-                                key={"heart" + heart.id}
-                                onClick={() => this.heartClickHandler(heart.id)}
-                            />
-                        ))}</span>
+                <span className="marginIcon2" >
+                        <FontAwesomeIcon icon={farHeart} size="2x" id="heartIcon" 
+                         style={{color: this.state.bgColor}}
+                         onClick={this.boxClick}
+                        />
+                        </span>
               </div>
               <div className="recipeItems">
                 <img

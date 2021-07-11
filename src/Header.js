@@ -24,7 +24,7 @@ class HeaderForm extends Component {
   render() {
     return (
       <div>
-        <div className="header-container">
+        <div className="header-container" >
           <h1 className="heading">Recipe Finder</h1>
           <form className="input-form">
             <input
@@ -39,11 +39,13 @@ class HeaderForm extends Component {
             />
           </form>
         </div>       
-        
+        {this.state.searched ? (
+          <SearchedContent foodItem={this.state.foodItem} />
+        ) : (
           <h2 className="firstTimeVis">
             Type a Dish Name to search for its ingredients
           </h2>
-    
+        )}
       </div>
     );
   }

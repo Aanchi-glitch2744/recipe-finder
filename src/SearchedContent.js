@@ -64,11 +64,30 @@ class SearchedContent extends Component {
     
         const id =
         dish!== null && dish.length > 0 ? (
-            <div className="recipeContainer">
+            <div className="recipeContent">
               <div className="title">
                 <h1>{dish[0].strMeal}</h1>
               </div>
-              
+              <div className="recipeItems">
+                <img
+                  src={dish[0].strMealThumb}
+                  alt={"Your meal for " + dish[0].strMeal}
+                />
+                <div class="textData">
+                  <p>
+                    <em>Category of Meal:</em> {dish[0].strCategory}{" "}
+                  </p>
+                  <p>
+                    <em>Area of the Meal:</em> {dish[0].strArea}{" "}
+                  </p><br />
+                  <h4 ><em>Ingredients:</em></h4>
+                  <ul className="ingredients">{list}</ul>
+
+
+                  <h4 id="recipesheading"><em>Recipes</em></h4>
+                  <div className="recipe">{dish[0].strInstructions}</div>
+                </div>
+              </div>
             </div>
           ) : (
             <div className="noData">No Data has been recieved</div>
